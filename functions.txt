@@ -1,0 +1,17 @@
+## 関数の説明(T-Oxyの見解による簡易版)
+
+・library(grid) : 基本ライブラリ
+・grid.newpage() : 左下を原点、右方向にx軸、上方向にy軸をとる描画ウィンドウを新規作成
+
+・grid.rect(描画する長方形の中心のx座標, 長方形の中心のy座標, 長方形のx軸方向の長さ, 長方形のy軸方向の長さ, 長方形の内部を塗りつぶす色等の指定)
+  ex) grid.rect(c(1,3,1,3)/4, c(3,3,1,1)/4, 1/2, 1/2, gp = gpar(col = NA, fill = gray(1:4/5)))
+  ref) https://www.rdocumentation.org/packages/grid/versions/3.6.2/topics/grid.rect
+
+・gray(0~1) : 0なら黒、１なら白
+
+・readline()等を用いて、標準入力により数値ベクトルを生成する手順例 :
+  selfvector <- function () {
+    vec <- readline("適当なベクトルを入力(","で区切り) : ")
+    as.numeric(unlist(strsplit(vec, ",")))   #strsplit() で文字列リスト化,unlist() で文字列ベクトル化,as.numeric() で数値化
+    }
+  x <- selfvector()
